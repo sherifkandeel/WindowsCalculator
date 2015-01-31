@@ -30,14 +30,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3.6"
-                    android:background="#bd6064"
-                    ></LinearLayout>
+                    android:background="#bd6064"></LinearLayout>
 
                 <Button
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:background="#c75050"
                     android:text="X"
@@ -61,13 +60,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="105"
-                    android:orientation="vertical">
-
+                    android:orientation="vertical"
+                    style="@style/calc_button"
+                    >
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:background="@drawable/normal_button_gradient"
+                        android:layout_margin="5dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="234234"
+                        android:gravity="bottom|right"
+                        />
+
+                    <TextView
+                        android:id="@+id/LargeDisplay"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:layout_margin="5dp"
                         android:gravity="bottom|right"
                         android:text="1234"
                         android:textAlignment="gravity"
@@ -103,21 +113,22 @@
                                 android:orientation="vertical">
 
                                 <Button
+                                    style="@style/m_button"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/m_buttons_solid"
                                     android:text="MC"
                                     android:textColor="#032146"
                                     android:textSize="26dp" />
 
                                 <Button
+                                    android:onClick="onClick"
+                                    style="@style/fn_button"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/fn_button_gradient"
                                     android:gravity="top|center"
                                     android:text="←"
                                     android:textAlignment="gravity"
@@ -125,31 +136,34 @@
                                     android:textSize="40dp" />
 
                                 <Button
+                                    style="@style/calc_button"
+                                    android:onClick="onClick"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/normal_button_gradient"
                                     android:text="7"
                                     android:textColor="#032146"
                                     android:textSize="36dp" />
 
                                 <Button
+                                    style="@style/calc_button"
+                                    android:onClick="onClick"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/normal_button_gradient"
                                     android:text="4"
                                     android:textColor="#032146"
                                     android:textSize="36dp" />
 
                                 <Button
+                                    style="@style/calc_button"
+                                    android:onClick="onClick"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/normal_button_gradient"
                                     android:text="1"
                                     android:textColor="#032146"
                                     android:textSize="36dp" />
@@ -164,52 +178,63 @@
                                 android:orientation="vertical">
 
                                 <Button
+                                    style="@style/m_button"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/m_buttons_solid"
                                     android:text="MR"
                                     android:textColor="#032146"
                                     android:textSize="26dp" />
 
                                 <Button
+                                    style="@style/fn_button"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/fn_button_gradient"
                                     android:text="CE"
                                     android:textColor="#032146"
                                     android:textSize="26dp" />
 
                                 <Button
+                                    style="@style/calc_button"
+                                    android:onClick="onClick"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/normal_button_gradient"
                                     android:text="8"
                                     android:textColor="#032146"
                                     android:textSize="36dp" />
 
                                 <Button
-
+                                    style="@style/calc_button"
+                                    android:onClick="onClick"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/normal_button_gradient"
                                     android:text="5"
                                     android:textColor="#032146"
                                     android:textSize="36dp" />
+                                <!--<Button-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="0dp"-->
+                                <!--android:layout_margin="2dp"-->
+                                <!--android:layout_weight="1"-->
+                                <!--style="@style/calc_button"-->
+                                <!--android:text="5"-->
+                                <!--android:textColor="#032146"-->
+                                <!--android:textSize="36dp" />-->
 
                                 <Button
+                                    style="@style/calc_button"
+                                    android:onClick="onClick"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="2dp"
                                     android:layout_weight="1"
-                                    android:background="@drawable/normal_button_gradient"
                                     android:text="2"
                                     android:textColor="#032146"
                                     android:textSize="36dp" />
@@ -226,11 +251,12 @@
                             android:orientation="vertical">
 
                             <Button
+                                style="@style/calc_button"
+                                android:onClick="onClick"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_margin="2dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/normal_button_gradient"
                                 android:text="0"
                                 android:textColor="#032146"
                                 android:textSize="36dp" />
@@ -248,61 +274,65 @@
                         android:orientation="vertical">
 
                         <Button
+                            style="@style/m_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/m_buttons_solid"
                             android:text="MS"
                             android:textColor="#032146"
                             android:textSize="26dp" />
 
                         <Button
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="C"
                             android:textColor="#032146"
                             android:textSize="26dp" />
 
                         <Button
+                            style="@style/calc_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/normal_button_gradient"
                             android:text="9"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            style="@style/calc_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/normal_button_gradient"
                             android:text="6"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            android:onClick="onClick"
+                            style="@style/calc_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/normal_button_gradient"
                             android:text="3"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            style="@style/calc_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/normal_button_gradient"
                             android:text="."
                             android:textColor="#032146"
                             android:textSize="36dp" />
@@ -316,62 +346,66 @@
                         android:orientation="vertical">
 
                         <Button
+                            style="@style/m_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/m_buttons_solid"
                             android:text="M+"
                             android:textColor="#032146"
                             android:textSize="26dp" />
 
 
                         <Button
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="±"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            android:onClick="onClick"
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="/"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            android:onClick="onClick"
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="*"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            android:onClick="onClick"
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="-"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            android:onClick="onClick"
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="+"
                             android:textColor="#032146"
                             android:textSize="36dp" />
@@ -384,46 +418,48 @@
                         android:orientation="vertical">
 
                         <Button
+                            style="@style/m_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/m_buttons_solid"
                             android:text="M-"
                             android:textColor="#032146"
                             android:textSize="26dp" />
 
                         <Button
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="√"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="%"
                             android:textColor="#032146"
                             android:textSize="36dp" />
 
                         <Button
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
                             android:layout_weight="1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="1/x"
                             android:textColor="#032146"
                             android:textSize="26dp" />
 
                         <Button
+                            android:onClick="onClick"
+                            style="@style/fn_button"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_marginBottom="2dp"
@@ -431,7 +467,6 @@
                             android:layout_marginRight="2dp"
                             android:layout_marginTop="2dp"
                             android:layout_weight="2.1"
-                            android:background="@drawable/fn_button_gradient"
                             android:text="="
                             android:textColor="#032146"
                             android:textSize="48dp" />

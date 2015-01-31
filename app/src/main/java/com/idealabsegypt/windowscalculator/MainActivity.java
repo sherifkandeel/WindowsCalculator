@@ -5,9 +5,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+    Calculator calc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +19,18 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        calc = new Calculator();
 
-}
+    }
+
+    public void onClick(View v) {
+        String text = ((Button)v).getText().toString();
+        TextView tv = (TextView) findViewById(R.id.LargeDisplay);
+        calc.pressed(text);
+        String toDisplay = calc.getLargeDisplay();
+        tv.setText(toDisplay);
+
+    }
 
 
     @Override
