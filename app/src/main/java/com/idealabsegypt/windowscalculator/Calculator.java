@@ -1,5 +1,6 @@
 package com.idealabsegypt.windowscalculator;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -20,6 +21,11 @@ public class Calculator {
     boolean isOperation; //false is number, true is operation
     boolean clearDisplayFirst;
 
+
+    //Memory functions
+    double memory;
+    boolean isMemoryInUse;
+
     public Calculator() {
         smallDisplay = "";
         LargeDisplay = "0";
@@ -33,23 +39,52 @@ public class Calculator {
         firstOperand = "";
         secondOperand = ""; //to mark it's been used or not
 
+
+        memory =0f;
+        isMemoryInUse=false;
     }
 
 
     public void pressed(String buttonValue) {
         checkToAllowDecimalPoint();
 
+        if(buttonValue.equals("MS"))
+        {
+            memory=Double.parseDouble(LargeDisplay);
+            isMemoryInUse=true;
+        }
+        else if(buttonValue.equals("MC")){
+            memory=0;
+            isMemoryInUse=false;
+        }
+        else if(buttonValue.equals("M+")){
+            memory+=Double.parseDouble(LargeDisplay);
+            isMemoryInUse=true;
+        }
+        else if(buttonValue.equals("M-")){
+            memory-=Double.parseDouble(LargeDisplay);
+            isMemoryInUse=true;
+        }
+        else if(buttonValue.equals("MR")){
+            LargeDisplay=String.valueOf(memory);
+        }
 
         if (buttonValue.equals("C")) {
             ClearAll();
+        }
+
+        if(buttonValue.equals("CE")){
+            //to be implemented
+           // ClearAll();
+            LargeDisplay="0";
         }
 
         if (buttonValue.equals("√")) {
             double value = Double.parseDouble(LargeDisplay);
             if (value < 0)
                 clearDisplayFirst = true;
-            String s = displayNested("sqrt");
-            sortSmallDisplay(s);
+            smallDisplay = displayNested("sqrt");
+            //sortSmallDisplay(s);
             value = Math.sqrt(value);
             LargeDisplay = String.valueOf(value);
             buff = value;
@@ -58,9 +93,9 @@ public class Calculator {
         }
 
         if (buttonValue.equals("1/x")) {
-            String s = displayNested("reciproc");
+            smallDisplay = displayNested("reciproc");
 //            String s = "reciproc(" + LargeDisplay + ")";
-            sortSmallDisplay(s);
+            //sortSmallDisplay(s);
             double value = Double.parseDouble(LargeDisplay);
             value = 1 / value;
             LargeDisplay = String.valueOf(value);
@@ -172,10 +207,16 @@ public class Calculator {
         if(smallDisplay.trim().endsWith(")")){
             String[] values = smallDisplay.split(" ");
             values[values.length-1] = operator+"("+values[values.length-1]+")";
-            return Arrays.toString(values);
+
+            String Arrayout="";
+            for (int i=0; i <values.length;i++)
+            {
+                Arrayout+=values[i]+" ";
+            }
+            return Arrayout;
         }
         else{
-            return "sqrt(" + LargeDisplay + ")";
+            return smallDisplay+" "+ operator +"(" + LargeDisplay + ")";
         }
     }
 
@@ -263,6 +304,11 @@ public class Calculator {
 
     public String getSmallDisplay() {
         return smallDisplay;
+    }
+
+    public int getMSymbol(){
+        if(isMemoryInUse) return 1;
+        return 0;
     }
 
 

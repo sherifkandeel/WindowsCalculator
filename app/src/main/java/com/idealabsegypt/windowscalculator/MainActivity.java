@@ -34,6 +34,13 @@ public class MainActivity extends ActionBarActivity {
         TextView stv  = (TextView) findViewById(R.id.smallDisplay);
         stv.setText(toDisplayAbove);
 
+        TextView memoryView = (TextView) findViewById(R.id.memoryDisplay);
+        int visibility = calc.getMSymbol();
+        if(visibility==1)
+            memoryView.setVisibility(View.VISIBLE);
+        else
+            memoryView.setVisibility(View.INVISIBLE);
+
     }
 
 
