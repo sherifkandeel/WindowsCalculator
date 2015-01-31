@@ -33,6 +33,7 @@
                     android:background="#bd6064"></LinearLayout>
 
                 <Button
+                    android:onClick="exitApp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"

@@ -43,6 +43,11 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
+    public void exitApp(View v)
+    {
+        System.exit(1);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
