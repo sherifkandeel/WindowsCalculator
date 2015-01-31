@@ -30,6 +30,10 @@ public class MainActivity extends ActionBarActivity {
         String toDisplay = calc.getLargeDisplay();
         tv.setText(toDisplay);
 
+        String toDisplayAbove = calc.getSmallDisplay();
+        TextView stv  = (TextView) findViewById(R.id.smallDisplay);
+        stv.setText(toDisplayAbove);
+
     }
 
 

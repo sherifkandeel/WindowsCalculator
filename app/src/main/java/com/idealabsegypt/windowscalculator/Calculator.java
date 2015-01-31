@@ -1,5 +1,7 @@
 package com.idealabsegypt.windowscalculator;
 
+import java.util.Arrays;
+
 /**
  * Created by sherif on 1/28/2015.
  */
@@ -38,12 +40,56 @@ public class Calculator {
         checkToAllowDecimalPoint();
 
 
-        if (buttonValue.equals("←")) {
-            LargeDisplay = removeLastChar(LargeDisplay);
-            buff = Double.parseDouble(LargeDisplay);
+        if (buttonValue.equals("C")) {
+            ClearAll();
+        }
+
+        if (buttonValue.equals("√")) {
+            double value = Double.parseDouble(LargeDisplay);
+            if (value < 0)
+                clearDisplayFirst = true;
+            String s = displayNested("sqrt");
+            sortSmallDisplay(s);
+            value = Math.sqrt(value);
+            LargeDisplay = String.valueOf(value);
+            buff = value;
 
 
         }
+
+        if (buttonValue.equals("1/x")) {
+            String s = displayNested("reciproc");
+//            String s = "reciproc(" + LargeDisplay + ")";
+            sortSmallDisplay(s);
+            double value = Double.parseDouble(LargeDisplay);
+            value = 1 / value;
+            LargeDisplay = String.valueOf(value);
+            buff = value;
+        }
+
+        if (buttonValue.equals("%")) {
+            double value = Double.parseDouble(LargeDisplay);
+            double fo = 0;
+            if (firstOperand.length() != 0)
+                fo = Double.parseDouble(firstOperand);
+            value = (fo * value) / 100;
+            LargeDisplay = String.valueOf(value);
+            buff = value;
+
+        }
+
+        if (buttonValue.equals("±")) {
+            double value = Double.parseDouble(LargeDisplay);
+            value *= -1f;
+            LargeDisplay = String.valueOf(value);
+            buff = value;
+        }
+
+        if (buttonValue.equals("←")) {
+            LargeDisplay = removeLastChar(LargeDisplay);
+            buff = Double.parseDouble(LargeDisplay);
+        }
+
         //Handling operations
         else if (buttonValue.equals("+") ||
                 buttonValue.equals("-") ||
@@ -55,6 +101,15 @@ public class Calculator {
                 Op = buttonValue;
                 clearDisplayFirst = true;
                 return;
+            }
+
+            if (!buttonValue.equals("=")) {
+                if (!smallDisplay.trim().endsWith(")")) {
+                    sortSmallDisplay(LargeDisplay);
+                }
+                sortSmallDisplay(buttonValue);
+            } else {
+                smallDisplay = " ";
             }
 
 
@@ -77,7 +132,9 @@ public class Calculator {
                 secondOperand = "";
                 Op = "";
                 isOperation = false;
+                smallDisplay = " ";
             }
+
         }
 
 
@@ -85,7 +142,7 @@ public class Calculator {
         if (LargeDisplay.length() == 16) return;
 
 
-        //numbers and decimal points
+            //numbers and decimal points
         else if (buttonValue.equals(".") && !AfterDecimal) {
             checkToClearDisplayFirst();
             AfterDecimal = true;
@@ -109,6 +166,37 @@ public class Calculator {
         }
 
 
+    }
+
+    private String displayNested(String operator) {
+        if(smallDisplay.trim().endsWith(")")){
+            String[] values = smallDisplay.split(" ");
+            values[values.length-1] = operator+"("+values[values.length-1]+")";
+            return Arrays.toString(values);
+        }
+        else{
+            return "sqrt(" + LargeDisplay + ")";
+        }
+    }
+
+
+    private void sortSmallDisplay(String toAdd) {
+        smallDisplay += " " + toAdd;
+
+    }
+
+    private void ClearAll() {
+        smallDisplay = " ";
+        LargeDisplay = "0";
+        mem = 0f;
+        buff = 0f;
+        total = 0f;
+        AfterDecimal = false;
+        clearDisplayFirst = false;
+        isOperation = false;
+
+        firstOperand = "";
+        secondOperand = ""; //to mark it's been used or not
     }
 
     private String doOperation(String firstOperand, String op, String secondOperand) {
@@ -162,6 +250,14 @@ public class Calculator {
 
 
     public String getLargeDisplay() {
+        if (LargeDisplay.endsWith(".0"))
+            LargeDisplay = LargeDisplay.replace(".0", "");
+        else if (LargeDisplay.contains(".")) {
+            double value = Double.parseDouble(LargeDisplay);
+            value = (double) Math.round(value * 1000000000) / 1000000000;
+            LargeDisplay = String.valueOf(value);
+        }
+
         return LargeDisplay;
     }
 

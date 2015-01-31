@@ -64,6 +64,7 @@
                     style="@style/calc_button"
                     >
                     <TextView
+                        android:id="@+id/smallDisplay"
                         android:layout_width="match_parent"
                         android:layout_margin="5dp"
                         android:layout_height="0dp"
@@ -285,6 +286,7 @@
 
                         <Button
                             style="@style/fn_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
@@ -358,6 +360,7 @@
 
                         <Button
                             style="@style/fn_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
@@ -429,6 +432,7 @@
 
                         <Button
                             style="@style/fn_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
@@ -439,6 +443,7 @@
 
                         <Button
                             style="@style/fn_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
@@ -449,6 +454,7 @@
 
                         <Button
                             style="@style/fn_button"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="2dp"
